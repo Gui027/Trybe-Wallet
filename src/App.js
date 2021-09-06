@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import Login from './pages/Login';
+import Wallet from './pages/Wallet';
 import store from './store/index';
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
         <Provider store={ store }>
           <Switch>
             <Route path="/" component={ Login } />
+            <Route path="/carteira" component={ Wallet } />
           </Switch>
         </Provider>
       </BrowserRouter>
