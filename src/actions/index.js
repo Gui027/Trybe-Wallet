@@ -1,6 +1,9 @@
 // Coloque aqui suas actions
+
+const LOGIN = 'LOGIN';
+
 const logar = (state) => ({
-  type: 'LOGIN',
+  type: LOGIN,
   state,
 });
 

@@ -1,8 +1,6 @@
-const EMAIL_USER = 'EMAIL_USER';
+export const EMAIL_USER = 'EMAIL_USER';
 
-const validateEmail = (payload) => ({
+export const validateEmail = (payload) => ({
   type: EMAIL_USER,
   payload,
 });
-
-export default validateEmail;

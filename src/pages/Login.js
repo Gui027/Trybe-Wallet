@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import validateEmail from '../actions/validateEmail';
+import { validateEmail } from '../actions/validateEmail';
 
 class Login extends React.Component {
   constructor() {
@@ -13,6 +13,13 @@ class Login extends React.Component {
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.disableButton = this.disableButton.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const { emailValidSucess, history } = this.props;
+    emailValidSucess(this.state);
+    history.push('/carteira');
   }
 
   handleChangeEmail(event) {
@@ -37,7 +44,7 @@ class Login extends React.Component {
   render() {
     const { email, password } = this.state;
     return (
-      <form>
+      <form onSubmit={ this.handleClick }>
         <label data-testid="text-input-label" htmlFor="Input-email">
           <input
             type="email"
@@ -60,16 +67,26 @@ class Login extends React.Component {
           />
         </label>
 
-        <Link to="/carteira">
-          <button type="button" disabled={ !this.disableButton() }>Entrar</button>
-        </Link>
+        <button type="submit" disabled={ !this.disableButton() }>
+          {' '}
+          Entrar
+          {' '}
+        </button>
+
       </form>
     );
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  validateEmail: (value) => dispatch(validateEmail(value)),
+  emailValidSucess: (payload) => dispatch(validateEmail(payload)),
 });
+
+Login.propTypes = {
+  emailValidSucess: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(Login);
