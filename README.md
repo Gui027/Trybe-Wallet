@@ -1,15 +1,12 @@
 # Projeto Trybe Wallet
 
-![image](https://user-images.githubusercontent.com/83846567/195350440-8cb14387-1077-441e-90b1-aaf66cb5609d.png)
-
-
 # Contexto
 
 Neste projeto desenvolvi uma carteira de controle de gastos com conversor de moedas, ao utilizar essa aplicação o usuário consegue:
 
-Adicionar e remover um gasto;
+Adicionar, remover e editar um gasto;
 
-Visualizar na tela suas Entradas, Saídas e o total dos seus gastos;
+Visualizar em uma tabela seus gastos;
 
 Visualizar o total de gastos convertidos para uma moeda de escolha;
 
